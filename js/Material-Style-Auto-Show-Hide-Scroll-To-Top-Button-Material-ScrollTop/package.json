@@ -1,0 +1,57 @@
+{
+  "name": "material-scrolltop",
+  "version": "2.0.0",
+  "description": "Lightweight, Material Design inspired plugin for scrolling on top of the html page (with jQuery)",
+  "main": "./dist/material-scrolltop.js",
+  "types": "./dist/material-scrolltop.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": "Lukas Bartak <bart@bartweb.cz> (https://github.com/bartholomej)",
+  "homepage": "https://github.com/bartholomej/material-scrolltop",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn build --watch",
+    "build": "yarn delete:dist & yarn copy & yarn build:scss & yarn tsc",
+    "tsc": "tsc",
+    "delete:dist": "rm -rf dist/* ",
+    "copy": "rsync -r ./src/icons ./dist/",
+    "build:scss": "node-sass src -o dist",
+    "version": "",
+    "postversion": "git push && git push --follow-tags",
+    "release:patch": "git checkout master && npm version patch -m \"chore(update): patch release %s 🐛 \"",
+    "release:minor": "git checkout master && npm version minor -m \"chore(update): release %s 🚀\"",
+    "release:major": "git checkout master && npm version major -m \"chore(update): major release %s 💥 \""
+  },
+  "repository": {
+    "url": "git+https://github.com/bartholomej/material-scrolltop.git",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/bartholomej/material-scrolltop/issues"
+  },
+  "keywords": [
+    "material",
+    "material design",
+    "ripple",
+    "button",
+    "animate",
+    "jquery",
+    "scrollTop",
+    "scroll to top",
+    "sass",
+    "typescript"
+  ],
+  "peerDependencies": {
+    "jquery": ">=1.7"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.3.31",
+    "node-sass": "^4.13.0",
+    "typescript": "^3.7.4"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0",
+    "node": ">=10"
+  }
+}
